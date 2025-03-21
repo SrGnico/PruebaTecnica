@@ -2,8 +2,7 @@ import Colors from '@/constants/Colors';
 import { Pressable, StyleSheet, Text } from 'react-native';
 import * as Haptics from 'expo-haptics';
 
-
-const Button = ({ title }: { title: string }) => {
+const Button = ({ title, onPress }: { title: string, onPress: () => void }) => {
     
     return (
     <Pressable 
@@ -13,7 +12,7 @@ const Button = ({ title }: { title: string }) => {
     })}
     onPress={()=>{
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
-        //Take To Home Page
+        onPress();
     }}>
         <Text style={styles.title}>{title}</Text>
     </Pressable>)
@@ -29,6 +28,7 @@ const styles = StyleSheet.create({
         height: 50,
         justifyContent: 'center',
         alignItems: 'center',
+        marginVertical: 10
     },
     title:{
         color: Colors.dark.text,

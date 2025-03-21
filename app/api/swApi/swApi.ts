@@ -55,6 +55,8 @@ const getPlanetsFromApi = async (): Promise<Planeta[]> => {
   }
 };
 
+
+
 const getPeopleFromApi = async (): Promise<Persona[]> => {
   try {
     const response = await fetch('https://swapi.py4e.com/api/people/');
